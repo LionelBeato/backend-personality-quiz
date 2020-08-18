@@ -15,7 +15,9 @@ public class Runner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (quizRepo.findAll() == null) {
+//         The previous code we had always returned false
+//         using the isEmpty() method is bit sounder and will properly return a true or false value 
+        if (quizRepo.findAll().isEmpty()) {
             this.quizRepo.save(new Quiz("What Is Your Preferred Halloween Costume?", "A. None, I'm lame", "B. Skeleton",
                     "C. George of the Jungle", "D. A group costume with friends", "E. Cow"));
             this.quizRepo.save(new Quiz("What Quality Is Most Attractive to You?", "A.Sense of humor",
